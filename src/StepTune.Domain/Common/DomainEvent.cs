@@ -4,7 +4,8 @@ using System.Text;
 
 namespace StepTune.Domain.Common
 {
-    public class DomainEvent
+    public abstract record DomainEvent(Guid EventId, DateTime OccuredOn)
     {
+        protected DomainEvent() : this(Guid.NewGuid(), DateTime.UtcNow) { }
     }
 }
