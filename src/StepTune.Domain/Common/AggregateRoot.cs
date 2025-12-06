@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StepTune.Domain.Common
 {
-    public class AggregateRoot:BaseEntity
+    public abstract class AggregateRoot:BaseEntity
     {
     }
 }
