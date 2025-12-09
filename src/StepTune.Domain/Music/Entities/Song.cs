@@ -40,7 +40,7 @@ namespace StepTune.Domain.Music.Entities
                 return Result.Failure<Song>("Duration must be greater than 0");
             if (bpm < 0)
                 return Result.Failure<Song>("BPM must be greater than 0");
-            var bpmResult = BpmRange.Create(bpm - 5, bpm + 5);
+            var bpmResult = BpmRange.Create(Math.Max(bpm - 5,0), bpm + 5);
             if (bpmResult.IsFailure)
                 return Result.Failure<Song>(bpmResult.Error);
 
