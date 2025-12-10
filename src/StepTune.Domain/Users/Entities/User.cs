@@ -1,4 +1,5 @@
 ﻿using StepTune.Domain.Common;
+using StepTune.Domain.Users.Events;
 using StepTune.Domain.Users.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,9 @@ namespace StepTune.Domain.Users.Entities
                 Profile = profile,
                 CreatedAt = DateTime.UtcNow
             };
+
+            user.AddDomainEvent(new UserRegisteredEvent(user.Id));
+
             return Result.Success<User>(user);
         }
 
