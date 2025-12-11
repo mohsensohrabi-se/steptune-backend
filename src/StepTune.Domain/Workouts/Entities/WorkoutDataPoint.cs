@@ -4,14 +4,14 @@ using StepTune.Domain.Workouts.ValueObjects;
 
 namespace StepTune.Domain.Workouts.Entities
 {
-    public class WorkoutDataPoint: AggregateRoot
+    public class WorkoutDataPoint: BaseEntity
     {
         private WorkoutDataPoint() { }
         public  DateTime TimeStamp { get; private set; }
         public Cadence? Cadence { get; private set; }
         public Pace? Pace { get; private set; }
         public GeoPoint? Location { get; private set; }
-        public int steps { get; private set; }
+        public int Steps { get; private set; }
 
         private WorkoutDataPoint(DateTime timeStamp, int steps, Cadence? cadence, Pace? pace, GeoPoint? location)
         {
@@ -19,7 +19,7 @@ namespace StepTune.Domain.Workouts.Entities
             Cadence = cadence;
             Pace = pace;
             Location = location;
-            this.steps = steps;
+            this.Steps = steps;
         }
         public static WorkoutDataPoint Create(
             DateTime time,
