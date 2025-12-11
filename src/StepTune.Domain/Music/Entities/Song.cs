@@ -9,7 +9,7 @@ namespace StepTune.Domain.Music.Entities
     public sealed class Song:AggregateRoot
     {
         private Song() { }
-        public Guid? UserId { get; private set;  }
+        public Guid UserId { get; private set;  }
         public string Title { get; private set; } = default!;
         public string Artist { get; private set; } = default!;
         public int Duration { get; private set; }
